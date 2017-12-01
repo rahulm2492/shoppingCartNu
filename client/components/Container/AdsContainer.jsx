@@ -26,8 +26,9 @@ class AdsContainer extends React.Component {
                      prodData = {data}
                      key={index}
                      pricePerUnit={this.props.pricingRules && this.props.pricingRules.price[data.id]}
+                     discount={this.props.pricingRules && this.props.pricingRules.discount}
                      onAddToCart={this.props.onAddToCart}
-                     {...this.props.adsData[data.id]}
+                     {...this.props.adsData}
                      
                      />
                 )

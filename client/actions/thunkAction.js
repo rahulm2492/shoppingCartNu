@@ -30,33 +30,3 @@ export default  (data) => {
     };
 }
 
-export function filter(data,state){
-  const {returnDate, departureDate, departureCity, arrivalCity,leftRange, rightRange }   = state;
-  let lowerPrice = leftRange ;
-  let higherPrice = rightRange;
-  if(leftRange >= rightRange) {
-    lowerPrice = rightRange;
-    higherPrice = leftRange;
-  }
-  let a=[],b=[];
-   data.forEach((item)=>{
-    if(departureDate === item.date 
-    && departureCity === item.departureCity 
-    && arrivalCity === item.arrivalCity 
-    && item.price >= lowerPrice
-    && item.price <= higherPrice
-    ){
-      a.push(item);
-    }
-    if(returnDate === item.date 
-    && arrivalCity === item.departureCity 
-    && departureCity === item.arrivalCity
-    && item.price >= lowerPrice
-    && item.price <= higherPrice
-     ){
-      b.push(item);
-    }
-  });
-  return [a,b];
-
-}

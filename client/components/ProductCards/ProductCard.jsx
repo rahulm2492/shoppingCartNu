@@ -26,6 +26,7 @@ class ProductCard extends React.Component {
                   desc={prodData.desc} 
                   title={prodData.title} 
                   productId={prodData.id}
+                  discount={prodData.discount}
                   {...this.props}
                   />
             </div>

@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import InputControl from '../Common/InputControl.jsx';
-
-
+import checkoutCart from '../../reducers/checkoutCart.jsx';
 
 class ProductDescription extends React.Component {
   constructor(props){
@@ -18,17 +17,30 @@ class ProductDescription extends React.Component {
 
  changeQty(e){
    this.setState({
-     qty:e.target.value
+     qty:parseInt(e.target.value)
    })
  }
+
  sendData(){
+   const {pricePerUnit, title, productId, discount} = this.props;
+
+   checkoutCart.addProduct({
+    unit : this.state.qty,
+    price: pricePerUnit,
+    productName:title,
+    productId: productId,
+  },discount && discount[productId]);
+   // eslint-disable-next-line no-console
+  console.log(checkoutCart.getTotal());
   this.props.onAddToCart({
-    qty:this.state.qty,
     id:this.props.productId,
-    name:this.props.title,
-    price:this.props.pricePerUnit
-  })
- }
+    data:{
+      ...checkoutCart.getTotal(),
+      originalUnit:this.state.qty,
+      productName:title
+    }
+ })
+}
 
   render() {
     const {title, desc, pricePerUnit} = this.props;
@@ -63,8 +75,7 @@ ProductDescription.propTypes = {
  desc: PropTypes.string,
  pricePerUnit:PropTypes.string,
  productId:PropTypes.string,
- computedPrice:PropTypes.string,
- computedQty:PropTypes.string,
+ discount: PropTypes.object,
  onAddToCart:PropTypes.func,
 }
 
