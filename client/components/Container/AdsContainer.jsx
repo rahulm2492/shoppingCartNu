@@ -12,9 +12,6 @@ class AdsContainer extends React.Component {
    
  }
  
-
- 
-
   render() {
   
        return (

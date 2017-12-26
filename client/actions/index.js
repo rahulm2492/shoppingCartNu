@@ -21,44 +21,7 @@ export const dataLoaded = val => {
   }
 }
 
-export const setDepartureCity = val =>{
-return {
-    type: 'DEPARTURE_CITY',
-    val,
-  }
-}
-export const setArrivalCity = val =>{
-return {
-    type: 'ARRIVAL_CITY',
-    val
-  }
-}
-export const setDepartureDate = val =>{
-return {
-    type: types.DEPARTURE_DATE,
-    val,
-  }
-}
-export const setRange = val =>{
-return {
-    type: types.RANGE,
-    val,
-  }
-}
 
-export const setFilterData = items => 
-{
-  return {
-    type: types.FILTER,
-    items,
-  }
-}
-export const setReturnDate = val =>{
-return {
-    type: types.RETURN_DATE,
-    val,
-  }
-}
 export const customerDetail = val => {
   return {
     type: types.CUSTOMERDETAIL,

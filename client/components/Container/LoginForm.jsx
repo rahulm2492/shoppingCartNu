@@ -43,8 +43,6 @@ class LoginForm extends React.Component {
                 <label name='custName'>Name: </label>
                 <InputControl  name='custName' type='text' placeHolder ='Enter Customer Name' onBlur={this.setData}/>
 
-
-
                 <label name='custMail'>E-Mail: </label>
                 <InputControl name='custMail' type='mail' placeHolder ='Enter Customer Email' onBlur={this.setData}/>
                 <label name='custNumber'>Phone: </label>
