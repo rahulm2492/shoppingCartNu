@@ -5,7 +5,8 @@ import AdsContainer from './Container/AdsContainer.jsx'
 import Cart from './Output/Cart.jsx';
 import Header from './Common/Header.jsx';
 import getPricing  from '../actions/thunkAction.js';
-import {addtoCart} from '../actions'
+import {addtoCart} from '../actions';
+import PropTypes from 'prop-types';
 
 
 class App extends React.Component {
@@ -19,9 +20,9 @@ class App extends React.Component {
     return (
      <div className='checkout container'>
         <Header/>
-        <LoginForm {...this.props}/>
-        <Cart {...this.props}/>
-        <AdsContainer {...this.props}/>
+         { !this.props.pricingRules && <LoginForm {...this.props}/>}
+        { this.props.pricingRules && <Cart {...this.props}/>}
+       { this.props.pricingRules &&  <AdsContainer {...this.props}/>}
 
       </div>);
   }
@@ -42,7 +43,9 @@ const mapDispatchToProps = (dispatch) => {
     onCustomerDetail : val => dispatch(getPricing (val))
   }
 }
-
+App.propTypes = {
+ pricingRules:PropTypes.object
+}
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

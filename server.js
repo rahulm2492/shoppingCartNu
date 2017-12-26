@@ -99,17 +99,17 @@ app.get('/set', (req, res, next) => {
       return res.json();
     }
   });
-  res.sendFile(path.resolve(__dirname, 'client', 'mock-data', 'index.json'));
+  res.sendFile(path.resolve(__dirname, 'client', 'mock-data', 'price.json'));
 
 
 
 });
 app.get('/price/:id', (req, res) => {
-  var data = pricing && pricing.discountedCustomers && pricing.discountedCustomers[ req.params.id];
+ 
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
   //var price={'Classic':pricing.Classic,'Standout':pricing.Standout,'Premium':pricing.Premium}
-  res.send(JSON.stringify({price:pricing,discount:data}));
+  res.send(JSON.stringify({price:pricing}));
 });
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));

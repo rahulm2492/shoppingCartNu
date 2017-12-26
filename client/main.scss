@@ -19,11 +19,24 @@ $break-large: 1200px;
         .loginform {
             width: 25%;
             border: 1px solid black;
-            text-align: left;
+            text-align: center;
             float: left;
+            >p {
+               
+                font-size: 10px;
+                color:red;
+            }
             h5{
                 text-align: center;
                 font-weight: bold;
+                margin-bottom:0px;
+            }
+            .enabled{
+             background-color: green;
+            }
+            .disabled {
+                background-color: grey;
+                opacity: 0.5
             }
             label{
                 font-size: 15px;
@@ -36,20 +49,50 @@ $break-large: 1200px;
             input {
                 text-align: center;
                 width:65%;
-                font-size: 12px
+                font-size: 12px;
+                outline:none;
+            }
+            input:invalid {
+                    border: 2px dashed red;
+                    }
+
+            input:valid {
+            border: 2px solid black;
             }
         }
         .productCart{
             float: left;
-            width:70%;
-            height: 140px;
+            width:100%;
+           
             overflow-y: scroll;
-            > div {
+            > div:nth-child(1){
+                width :70%;
+                float: left;
+                >div{
               margin:2px;
               span{
                   display: inline-block;
                   margin:0 30px;
-                  width: 15%
+                  width: 10%
+              }
+              span:last-child{
+                  border : 1px solid red;
+                  cursor: pointer;
+
+              }
+                }
+            }
+            .deliveryDetails{
+              border:1px solid black;
+              width:25%;
+              float: left;
+              > p {
+                  font-size: 14px;
+                  > span{
+                      width:40%;
+                      display: inline-block;
+                      text-align: center;
+                  }
               }
             }
         }
@@ -58,7 +101,6 @@ $break-large: 1200px;
             width:100%;
             border: 1px solid black;
             float: left;
-            margin-left: 5px;
             overflow-x:scroll;
 
             > div {

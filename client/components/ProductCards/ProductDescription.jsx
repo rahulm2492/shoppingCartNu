@@ -33,7 +33,6 @@ class ProductDescription extends React.Component {
    // eslint-disable-next-line no-console
   console.log(checkoutCart.getTotal());
   this.props.onAddToCart({
-    id:this.props.productId,
     data:{
       ...checkoutCart.getTotal()
     }
@@ -50,8 +49,8 @@ class ProductDescription extends React.Component {
                <p>{desc}</p>
                <h4 className="price">${pricePerUnit}</h4>
                <label name="Qty">Quantity:</label>
-               <InputControl  name='custName' type='number' placeHolder ='Qty' min={1} max={100} onChange={this.changeQty}/>
-               <button title='Place Order' disabled={!this.state.qty} onClick={this.sendData}>Add To Cart</button>
+              <InputControl  name='custName' type='number' placeHolder ='Qty' min={1} max={100} onChange={this.changeQty} onBlur={this.sendData}/>
+              <button title='Place Order' disabled={!this.state.qty} onClick={this.sendData}>Add To Cart</button> 
             </div>
      
        );

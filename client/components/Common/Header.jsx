@@ -9,7 +9,7 @@ class Header extends React.Component {
 
   render() {
        return (
-        <h3>Job Ads Checkout System.</h3>
+        <h3>Shopping Cart</h3>
        );
   }
 }

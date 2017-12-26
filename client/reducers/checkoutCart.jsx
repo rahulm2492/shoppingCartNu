@@ -26,7 +26,7 @@ import {roundTo} from '../utils'; // helper function
         }
 
         //product Already Exist
-        this.removeProduct(newProduct);
+        const getIndex=this.removeProduct(newProduct);
       
 
         //publish Total
@@ -40,7 +40,9 @@ import {roundTo} from '../utils'; // helper function
             this.newQty = discountedPrice && discountedPrice.newQty || unit;
         }
 
-        this.bucket.push({...newProduct, discountedTotal:this.discountedTotal, newQty:this.newQty, originalTotal:this.originalTotal});
+        getIndex >=0 
+        ? this.bucket.splice(getIndex,0,{...newProduct, discountedTotal:this.discountedTotal, newQty:this.newQty, originalTotal:this.originalTotal})
+        : this.bucket.push({...newProduct, discountedTotal:this.discountedTotal, newQty:this.newQty, originalTotal:this.originalTotal});
           // eslint-disable-next-line no-console
         console.log(this.bucket);
         
@@ -49,6 +51,7 @@ import {roundTo} from '../utils'; // helper function
      removeProduct(existingProduct){
          const findItem = this.bucket.findIndex(item => item.productId === existingProduct.productId);
          findItem >= 0 && this.bucket.splice(findItem,1);
+         return findItem;
      }
 
     //Add Tax

@@ -35,21 +35,23 @@ class LoginForm extends React.Component {
 
   render() {
     const {name, email, address, phone} = this.state;
-   let valuesFilled = name && email && address && phone
+   let valuesFilled = name && email && address && phone;
+   const submitButtonClass = valuesFilled ? 'enabled' : 'disabled'
        return (
         
             <div className = 'loginform'>
                 <h5>Enter Customer Detail</h5>
+                <p>All inputs are mandatory (*)</p>
                 <label name='custName'>Name: </label>
-                <InputControl  name='custName' type='text' placeHolder ='Enter Customer Name' onBlur={this.setData}/>
+                <InputControl  name='custName' type='text' placeHolder ='Enter Customer Name' onBlur={this.setData} required/>
 
                 <label name='custMail'>E-Mail: </label>
-                <InputControl name='custMail' type='mail' placeHolder ='Enter Customer Email' onBlur={this.setData}/>
+                <InputControl name='custMail' type='email' placeHolder ='Enter Customer Email' onBlur={this.setData} required/>
                 <label name='custNumber'>Phone: </label>
-                <InputControl name='custNumber' type='text' placeHolder ='Enter Customer Phone' onBlur={this.setData}/>
+                <InputControl name='custNumber' type='text' placeHolder ='Enter Customer Phone' onBlur={this.setData} pattern="[1-9][0-9]{9}" required/>
                 <label name='custAdd'>Address: </label>
-                <InputControl name='custAdd' type='textbox' placeHolder ='Enter Customer Address' onChange={this.setData}/>
-                <input type='submit' disabled={!valuesFilled} onClick={this.sendData}/>
+                <InputControl name='custAdd' type='textbox' placeHolder ='Enter Customer Address' onChange={this.setData} required/>
+                <input type='submit' disabled={!valuesFilled} onClick={this.sendData} className = {submitButtonClass}/>
             </div>
      
        );

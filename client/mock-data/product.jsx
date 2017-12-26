@@ -39,12 +39,6 @@
             "id":"pd6",
               "desc":"Cool Product"
         },
-         {
-            "skuiD":"pd9",
-            "title":"Product 9",
-            "id":"pd9",
-              "desc":"Cool Product"
-        },
         {
             "skuiD":"pd7",
             "title":"Product 7",
@@ -52,12 +46,6 @@
              "desc":"Cool Product"
         },
         {
-            "skuiD":"pd8",
-            "title":"Product 8",
-            "id":"pd8",
-             "desc":"Cool Product"
-        },
-         {
             "skuiD":"pd8",
             "title":"Product 8",
             "id":"pd8",

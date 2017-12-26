@@ -13,12 +13,12 @@ class ProductImage extends React.Component {
  
 
   render() {
-    const {img, altText} = this.props;
+    const {img} = this.props;
   
        return (
         
             <div className = 'productImage'>
-              <img src={img} altText={altText}/>
+              <img src={img}/>
             </div>
      
        );

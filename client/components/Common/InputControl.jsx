@@ -13,12 +13,14 @@ class InputControl extends React.Component {
     this.props.min ? properties.min = this.props.min : null;
     this.props.value ? properties.value = this.props.value : null;
     this.props.step ? properties.step = this.props.step : null;
+     this.props.pattern ? properties.pattern = this.props.pattern : null;
     const {
         type,
         placeHolder ,
         onChange,
         onBlur,
         name,
+        required
 
     }= this.props
     
@@ -29,6 +31,7 @@ class InputControl extends React.Component {
         placeholder ={placeHolder}
         onChange ={onChange}
         onBlur= {onBlur}
+        required={required}
      
         {...properties}
       >
@@ -44,19 +47,22 @@ InputControl.defaultProps = {
   value: '',
   min: '',
   max: '',
-  type: 'text'
+  type: 'text',
+  pattern:'',
 };
 
 InputControl.propTypes = {
   placeHolder:PropTypes.string,
-  onChange:PropTypes.func,
+  pattern:PropTypes.string,
+  onChange:PropTypes.oneOfType[PropTypes.func , PropTypes.string],
   onBlur:PropTypes.func,
   value:PropTypes.string,
-  min:PropTypes.number,
-  max:PropTypes.number,
+  min:PropTypes.string,
+  max:PropTypes.string,
   step:PropTypes.number,
   type:PropTypes.string,
-  name:PropTypes.string
+  name:PropTypes.string,
+  required:PropTypes.bool
 }
 
 export default InputControl;
