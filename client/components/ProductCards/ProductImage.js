@@ -3,17 +3,9 @@ import PropTypes from 'prop-types';
 
 
 
-class ProductImage extends React.Component {
-  constructor(props){
-    super(props);
-   
- }
+const ProductImage = (props) => {
  
-
- 
-
-  render() {
-    const {img} = this.props;
+    const {img} = props;
   
        return (
         
@@ -25,18 +17,12 @@ class ProductImage extends React.Component {
   }
 
 
-
-}
-
-
 ProductImage.defaultProps = {
  img: null,
- altText: null,
 };
 
 ProductImage.propTypes = {
- img : PropTypes.string,
- altText: PropTypes.string
+ img : PropTypes.string
 }
 
 

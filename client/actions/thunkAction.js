@@ -1,4 +1,4 @@
-import {dataLoaded ,dataLoading, loadingError, submitClicked, customerDetail} from './index.js'
+import {dataLoaded ,dataLoading, loadingError, customerDetail} from './index.js'
 
 export default  (data) => {
     // We return a function instead of an action object

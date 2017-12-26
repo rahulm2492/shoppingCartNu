@@ -1,5 +1,5 @@
 import React from 'react';
-import InputControl from '../Common/InputControl.jsx'
+import InputControl from '../Common/InputControl'
 import PropTypes from 'prop-types';
 
 

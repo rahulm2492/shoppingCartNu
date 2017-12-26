@@ -1,18 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ProductCard from '../ProductCards/ProductCard.jsx';
-import productData from '../../mock-data/product.jsx';
-// import PriceList from '../../mock-data/price.jsx';
+import ProductCard from '../ProductCards/ProductCard';
+import productData from '../../mock-data/product';
 
 
 
-class AdsContainer extends React.Component {
-  constructor(props){
-    super(props);
-   
- }
- 
-  render() {
+const AdsContainer =(props) => {
+  
   
        return (
         
@@ -23,10 +17,10 @@ class AdsContainer extends React.Component {
                     <ProductCard 
                      prodData = {data}
                      key={index}
-                     pricePerUnit={this.props.pricingRules && this.props.pricingRules.price[data.id]}
-                     discount={this.props.pricingRules && this.props.pricingRules.discount}
-                     onAddToCart={this.props.onAddToCart}
-                     {...this.props.adsData}
+                     pricePerUnit={props.pricingRules && props.pricingRules.price[data.id]}
+                     discount={props.pricingRules && props.pricingRules.discount}
+                     onAddToCart={props.onAddToCart}
+                     {...props.adsData}
                      
                      />
                 )
@@ -39,7 +33,7 @@ class AdsContainer extends React.Component {
 
 
 
-}
+
 
 
 AdsContainer.defaultProps = {

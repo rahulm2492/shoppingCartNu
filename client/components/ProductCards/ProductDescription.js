@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import InputControl from '../Common/InputControl.jsx';
-import checkoutCart from '../../reducers/checkoutCart.jsx';
+import InputControl from '../Common/InputControl';
+import checkoutCart from '../../utils/checkoutCart';
 
 class ProductDescription extends React.Component {
   constructor(props){
@@ -30,8 +30,7 @@ class ProductDescription extends React.Component {
     productName:title,
     productId: productId,
   },discount && discount[productId]);
-   // eslint-disable-next-line no-console
-  console.log(checkoutCart.getTotal());
+
   this.props.onAddToCart({
     data:{
       ...checkoutCart.getTotal()

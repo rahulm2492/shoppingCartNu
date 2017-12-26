@@ -1,30 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import checkoutCart from '../../reducers/checkoutCart.jsx';
+import checkoutCart from '../../utils/checkoutCart';
 
 
 
-class Cart extends React.Component {
-  constructor(props){
-    super(props);
-    this.removeitem = this.removeItem.bind(this);
-   
- }
- 
-
- removeItem(e,item){
+const Cart = (props) => {
+ const removeItem = (e,item) => {
 
    checkoutCart.removeProduct(item);
-   this.props.onAddToCart({
+   props.onAddToCart({
     data:{
       ...checkoutCart.getTotal()
     }
  })
  }
-
-  render() {
-    const {bucket} = this.props.cartData ;
-    const {name,address} = this.props.customerDetail;
+    const {bucket} = props.cartData ;
+    const {name,address} = props.customerDetail;
 
     
        return (
@@ -46,7 +37,7 @@ class Cart extends React.Component {
               <span>{product.price}</span>
               <span>{product.unit}</span>
               <span>{product.originalTotal}</span>
-              <span onClick ={(e)=>this.removeItem(e,{productId:product.productId})}>Remove</span>
+              <span onClick ={(e)=>removeItem(e,{productId:product.productId})}>Remove</span>
               </div>
               )
              }
@@ -66,7 +57,7 @@ class Cart extends React.Component {
 
 
 
-}
+
 
 
 Cart.defaultProps = {

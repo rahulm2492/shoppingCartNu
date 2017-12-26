@@ -1,19 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class InputControl extends React.Component {
-  constructor(props){
-    super(props);
-   
-  }
-
-  render() {
+const InputControl = (props) => {
+  
     let properties = {};
-    this.props.max ? properties.max = this.props.max : null;
-    this.props.min ? properties.min = this.props.min : null;
-    this.props.value ? properties.value = this.props.value : null;
-    this.props.step ? properties.step = this.props.step : null;
-     this.props.pattern ? properties.pattern = this.props.pattern : null;
+    props.max ? properties.max = props.max : null;
+    props.min ? properties.min = props.min : null;
+    props.value ? properties.value = props.value : null;
+    props.step ? properties.step = props.step : null;
+    props.pattern ? properties.pattern = props.pattern : null;
     const {
         type,
         placeHolder ,
@@ -22,7 +17,7 @@ class InputControl extends React.Component {
         name,
         required
 
-    }= this.props
+    }= props
     
     return (
       <input 
@@ -39,7 +34,7 @@ class InputControl extends React.Component {
       </input>
     )
   }
-}
+
 
 InputControl.defaultProps = {
   placeHolder: '',

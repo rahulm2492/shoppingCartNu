@@ -1,22 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ProductDescription from './ProductDescription.jsx';
-import ProductImage from './ProductImage.jsx';
+import ProductDescription from './ProductDescription';
+import ProductImage from './ProductImage';
 
 
 
 
-class ProductCard extends React.Component {
-  constructor(props){
-    super(props);
-   
- }
- 
+const ProductCard = (props) => {
 
- 
-
-  render() {
-    const {prodData} = this.props;
+    const {prodData} = props;
   
        return (
         
@@ -27,7 +19,7 @@ class ProductCard extends React.Component {
                   title={prodData.title} 
                   productId={prodData.id}
                   discount={prodData.discount}
-                  {...this.props}
+                  {...props}
                   />
             </div>
      
@@ -36,7 +28,7 @@ class ProductCard extends React.Component {
 
 
 
-}
+
 
 
 ProductCard.defaultProps = {

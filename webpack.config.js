@@ -25,5 +25,8 @@ module.exports = {
     ],
   },
   plugins: [HtmlWebpackPluginConfig],
-  devtool:'source-map'
+  devtool:'source-map',
+  resolve : {
+    extensions: [ '.js', '.json' ]
+  }
 }
