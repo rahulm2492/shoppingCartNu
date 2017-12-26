@@ -8,9 +8,13 @@ import {roundTo} from '../utils'; // helper function
         this.originalTotal ='0.00';
         this.discountedTotal ='0.00'
         this.newQty = null;
+        this.bucket=[];
       
     }
-
+    
+    totalPrice(){
+        return this.bucket.reduce((total,product)=> parseFloat(product.originalTotal) + total , 0.00)
+    }
     //Add New Product and Update Cart with New Total
      addProduct(newProduct,discount){
         
@@ -20,6 +24,10 @@ import {roundTo} from '../utils'; // helper function
           
             return;
         }
+
+        //product Already Exist
+        this.removeProduct(newProduct);
+      
 
         //publish Total
         this.originalTotal = roundTo(unit*price);
@@ -31,8 +39,16 @@ import {roundTo} from '../utils'; // helper function
             this.discountedTotal = roundTo(discountedPrice && discountedPrice.newPrice || price);
             this.newQty = discountedPrice && discountedPrice.newQty || unit;
         }
+
+        this.bucket.push({...newProduct, discountedTotal:this.discountedTotal, newQty:this.newQty, originalTotal:this.originalTotal});
+          // eslint-disable-next-line no-console
+        console.log(this.bucket);
         
-        
+     }
+
+     removeProduct(existingProduct){
+         const findItem = this.bucket.findIndex(item => item.productId === existingProduct.productId);
+         findItem >= 0 && this.bucket.splice(findItem,1);
      }
 
     //Add Tax
@@ -74,9 +90,8 @@ import {roundTo} from '../utils'; // helper function
 
      getTotal(){
          return { 
-             originalTotal :this.originalTotal, 
-             discountedTotal:this.discountedTotal, 
-             newQty:this.newQty
+             bucket:this.bucket,
+             totalPrice: roundTo(this.totalPrice())
             };
      }
 

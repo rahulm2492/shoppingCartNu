@@ -20,6 +20,7 @@ class AdsContainer extends React.Component {
        return (
         
             <div className = 'adsContainer'>
+            <div>
               {
                 productData.map((data, index)=>
                     <ProductCard 
@@ -33,6 +34,7 @@ class AdsContainer extends React.Component {
                      />
                 )
               }
+              </div>
             </div>
      
        );

@@ -5,7 +5,7 @@ export default  (data) => {
     return (dispatch) => {
         dispatch(dataLoading(true));
         dispatch(customerDetail(data));
-       return fetch('http://localhost:80/price/'+data.name)
+       return fetch('http://localhost:8080/price/'+data.name)
         .then((response) => {
             if (!response.ok) {
                    dispatch(loadingError({

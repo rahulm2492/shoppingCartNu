@@ -8,7 +8,7 @@ export default function(state={} , action)
           
        return {...state,'cart':{
          ...state.cart,
-         [action.val.id]:action.val.data
+         bucket:action.val.data
        } }}
     case 'LOADING_ERROR':
        return Object.assign({},state ,{error:action.data},{status:action.status})

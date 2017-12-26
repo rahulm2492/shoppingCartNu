@@ -12,8 +12,8 @@ var jwt = require('jsonwebtoken');
 var config = require('./config'); // get our config file
 
 var User   = require('./userModal'); 
-mongoose.connect(config.database); // connect to database
-app.set('superSecret', config.secret);
+// mongoose.connect(config.database); // connect to database
+// app.set('superSecret', config.secret);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.resolve(__dirname,  'dist')));
 var server_port = process.env.YOUR_PORT || process.env.PORT || 80;
 var server_host = process.env.YOUR_HOST || '0.0.0.0';
-app.listen(server_port, server_host,function(){
+app.listen(8080, '127.0.0.1',function(){
 console.log('Listening on port %d', server_port);
 });
 
@@ -108,8 +108,8 @@ app.get('/price/:id', (req, res) => {
   var data = pricing && pricing.discountedCustomers && pricing.discountedCustomers[ req.params.id];
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  var price={'Classic':pricing.Classic,'Standout':pricing.Standout,'Premium':pricing.Premium}
-  res.send(JSON.stringify({price:price,discount:data}));
+  //var price={'Classic':pricing.Classic,'Standout':pricing.Standout,'Premium':pricing.Premium}
+  res.send(JSON.stringify({price:pricing,discount:data}));
 });
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));

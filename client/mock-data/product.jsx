@@ -2,23 +2,66 @@
        
         {
             "skuiD":"pd1",
-            "title":"Classic Ad",
-            "id":"Classic",
-            "desc":"Offers the most basic level of advertisement"
+            "title":"Product 1",
+            "id":"pd1",
+            "desc":"Cool Product"
 
         },
         {
             "skuiD":"pd2",
-            "title":"Standout Ad",
-            "id":"Standout",
-            "desc":"Allows advertisers to use a company logo and use a longer presentation text"
+            "title":"Product 2",
+            "id":"pd2",
+             "desc":"Cool Product"
             
         },
         {
             "skuiD":"pd3",
-            "title":"Premium Ad",
-            "id":"Premium",
-            "desc":"Same benefits as Standout Ad, but also puts the advertisement at the top of the results, allowing higher visibility"
+            "title":"Product 3",
+            "id":"pd3",
+              "desc":"Cool Product"
+        },
+          {
+            "skuiD":"pd4",
+            "title": "Product 4",
+            "id":"pd4",
+              "desc":"Cool Product"
+        },
+        {
+            "skuiD":"pd5",
+            "title":"Product 5",
+            "id":"pd5",
+             "desc":"Cool Product"
+            
+        },
+        {
+            "skuiD":"pd6",
+            "title":"Product 6",
+            "id":"pd6",
+              "desc":"Cool Product"
+        },
+         {
+            "skuiD":"pd9",
+            "title":"Product 9",
+            "id":"pd9",
+              "desc":"Cool Product"
+        },
+        {
+            "skuiD":"pd7",
+            "title":"Product 7",
+            "id":"pd7",
+             "desc":"Cool Product"
+        },
+        {
+            "skuiD":"pd8",
+            "title":"Product 8",
+            "id":"pd8",
+             "desc":"Cool Product"
+        },
+         {
+            "skuiD":"pd8",
+            "title":"Product 8",
+            "id":"pd8",
+             "desc":"Cool Product"
         }
 ]
 export default data;

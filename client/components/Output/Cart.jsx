@@ -13,12 +13,30 @@ class Cart extends React.Component {
  
 
   render() {
-    const {img, altText} = this.props;
-  
+    const {bucket} = this.props.cartData ;
+
+    
        return (
         
-            <div className = 'productImage'>
-              <img src={img} altText={altText}/>
+            <div className = 'productCart'>
+            <div>
+            <span>Product Name</span>
+            <span>Price Per Unit</span>
+            <span>Unit Purchased</span>
+            <span>Cost of Product(s)</span>
+            </div>
+             {
+              bucket &&  bucket.bucket.map(product => 
+              <div key={product.id}>
+              <span>{product.productName}</span>
+              <span>{product.price}</span>
+              <span>{product.unit}</span>
+              <span>{product.originalTotal}</span>
+              </div>
+              )
+}
+
+       
             </div>
      
        );
@@ -30,13 +48,11 @@ class Cart extends React.Component {
 
 
 Cart.defaultProps = {
- img: null,
- altText: null,
+ cartData: []
 };
 
 Cart.propTypes = {
- img : PropTypes.string,
- altText: PropTypes.string
+ cartData : PropTypes.object,
 }
 
 

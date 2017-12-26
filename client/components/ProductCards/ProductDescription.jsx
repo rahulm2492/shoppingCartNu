@@ -35,9 +35,7 @@ class ProductDescription extends React.Component {
   this.props.onAddToCart({
     id:this.props.productId,
     data:{
-      ...checkoutCart.getTotal(),
-      originalUnit:this.state.qty,
-      productName:title
+      ...checkoutCart.getTotal()
     }
  })
 }
